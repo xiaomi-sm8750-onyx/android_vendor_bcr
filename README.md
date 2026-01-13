@@ -32,6 +32,56 @@ BCR is a simple Android call recording app for rooted devices or devices running
 * No network access permission
 * Works with call screening on Pixel devices (records the caller, but not the automated system)
 
+### Unreleased
+
+* Fix Russian translation for `notification_recording_finalizing` string ([Issue #763], [PR #764 @Ololoshevich])
+
+### Version 1.87
+
+* Add support for using Unix timestamps in the filename template ([Issue #742], [PR #743 @chenxiaolong])
+
+### Version 1.86
+
+* Update French translations ([PR #734 @NSO73])
+* Work around broken root hiding mechanisms that hide the old sysconfig file from the system ([Issue #733], [PR #736 @chenxiaolong])
+* Update dependencies ([PR #737 @chenxiaolong])
+
+### Version 1.85
+
+* Add support for hiding the app icon ([Issue #727], [PR #728 @People-11])
+  * When hidden, the app can be opened by dialing `*#*#BCR#*#*` (`*#*#227#*#*`)
+
+### Version 1.84
+
+* Fix recording to output directories that do not support seekable files ([Issue #722], [PR #723 @yeicor])
+* Append file extension manually if the SAF provider for the output directory fails to do so ([PR #724 @chenxiaolong])
+* Show path in notifications when SAF URI is meaningless ([PR #725 @chenxiaolong])
+
+### Version 1.83
+
+* Fix recording being restarted if the call state changes after it was cancelled (eg. due to "ignore" rules) ([Issue #719], [PR #720 @chenxiaolong])
+
+### Version 1.82
+
+* Fix file retention setting not refreshing if it was disabled by a bad filename template and the template is reset via long press ([PR #717 @chenxiaolong])
+* Update dependencies ([PR #718 @chenxiaolong])
+
+### Version 1.81
+
+* Add Azerbaijani translations ([PR #713 @muctebanesiri])
+* Update dependencies ([PR #714 @chenxiaolong])
+
+### Version 1.80
+
+* Update dependencies ([PR #696 @chenxiaolong], [PR #705 @chenxiaolong])
+* Remove dependency info block from APK ([PR #704 @chenxiaolong])
+
+### Version 1.79
+
+* Target Java 21 ([PR #685 @chenxiaolong])
+* Replace FAT32-invalid code points and ignorable code points in filenames ([Issue #691], [PR #692 @chenxiaolong], [PR #692 @TheDeathDragon])
+* Update dependencies ([PR #693 @chenxiaolong])
+
 ### Version 1.78
 
 * Add new `duration_secs_wall` field to the metadata JSON output file ([PR #674 @chenxiaolong])
