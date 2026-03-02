@@ -32,6 +32,125 @@ BCR is a simple Android call recording app for rooted devices or devices running
 * No network access permission
 * Works with call screening on Pixel devices (records the caller, but not the automated system)
 
+### Version 2.7
+
+* Update Chinese translations ([PR #827 @lofx-lee])
+* Improve workaround for Android binder bug to work in more situations ([Issue #819], [PR #828 @chenxiaolong])
+
+### Version 2.6
+
+* Work around an Android binder bug that sometimes breaks moving recordings to the output directory ([Issue #638], [Issue #732], [Issue #819], [PR #823 @chenxiaolong])
+* Fix harmless `Number cannot be empty` log spam for calls from private numbers ([Issue #819], [PR #824 @chenxiaolong])
+
+### Version 2.5
+
+* Add new "package_name" field to call metadata JSON files to indicate which app handled the call ([PR #811 @chenxiaolong])
+  * This can be used to differentiate between cellular calls (`com.android.phone`) or telecom-integrated VOIP calls.
+* Request InCallService events for self-managed calls ([Issue #804], [PR #812 @chenxiaolong])
+  * Improves compatibility for detecting telecom-integrated VOIP calls.
+* Add new toggle to make tapping on the completion notification open the output directory instead of the file ([Issue #794], [PR #814 @chenxiaolong])
+* Update German translations ([Issue #791], [PR #815 @ElsAr4e])
+
+### Version 2.4
+
+* Fix regression from version 2.2 where recordings were saved to the incorrect directory when subdirectories were used ([Issue #806], [PR #807 @chenxiaolong])
+* Disable file retention feature when the filename template has `{date}` more than once ([PR #808 @chenxiaolong])
+  * This was not meant to work and could cause the file retention feature to delete unexpected recordings.
+  * If you use multiple `{date}` items in the filename template due to subfolders, consider using a single one like `{date:yyyy/yyyy-MM-dd}` instead.
+* Fix `{date}` having the wrong value if there was already a custom `{date:...}` before it ([PR #809 @chenxiaolong])
+
+### Version 2.3
+
+* Fix obfuscated log tags after proguard changes in version 2.2 ([PR #801 @chenxiaolong])
+* Remove unused `debugOpt` build type ([PR #803 @chenxiaolong])
+
+### Version 2.2
+
+* Update Chinese translations ([PR #793 @lofx-lee])
+* Notify when a file could not be moved to the output directory ([Issue #797], [PR #798 @chenxiaolong])
+* Reenable default proguard optimizations ([PR #799 @chenxiaolong])
+  * For folks who want to decode stack traces from log files, the mapping files are now included with the official releases in `mappings.tar.zst`
+* Update dependencies ([PR #800 @chenxiaolong])
+
+### Version 2.1
+
+* Update Chinese translations ([PR #789 @lofx-lee])
+* Update German translations ([Issue #791], [PR #792 @ElsAr4e])
+
+### Version 2.0
+
+* Add support for stereo recording ([Issue #124], [Issue #127], [Issue #389], [Issue #405], [Issue #409], [Issue #410], [Issue #500], [Issue #566], [Issue #667], [Issue #673], [PR #772 @chenxiaolong])
+  * **NOTE**: This only works if the hardware supports it. Currently, only newer Pixel devices are known to support it.
+* Remove "Disable battery optimizations" setting ([PR #773 @chenxiaolong])
+  * This setting was never useful since Android does not restrict BCR from launching foreground services anyway.
+* Switch to libphonenumber for formatting phone numbers in the output filename ([PR #782 @chenxiaolong])
+  * `{phone_number:E.164}` is now guaranteed to actually be E.164-formatted
+  * `{phone_number:international}` has been added
+  * `{phone_number:formatted}` has been renamed to `{phone_number:national}` and will be automatically migrated
+  * `{phone_number:national}` will no longer implicitly fall back to `{phone_number}`
+  * `{phone_number:digits_only}` has been removed and will be automatically migrated to `{phone_number}`
+* Work around crash on some devices when querying the SIM slot ([Issue #761], [PR #783 @chenxiaolong])
+  * This just avoids an Android bug. On affected multi-SIM devices, the SIM slot will still be missing in the recording's filename.
+* Remove settings migration for legacy record rules ([PR #777 @chenxiaolong])
+  * If upgrading from an old version before 1.75, upgrade to 1.88 first.
+* Remove settings migration for legacy notification channels ([PR #778 @chenxiaolong])
+  * If upgrading from an old version before 1.24, upgrade to 1.88 first.
+* Remove settings migration for direct boot support ([PR #779 @chenxiaolong])
+  * If upgrading from an old version before 1.68, upgrade to 1.88 first.
+* Update dependencies ([PR #774 @chenxiaolong])
+* Fix minor lint warnings ([PR #775 @chenxiaolong], [PR #780 @chenxiaolong])
+
+### Version 1.88
+
+* Fix Russian translation for `notification_recording_finalizing` string ([Issue #763], [PR #764 @Ololoshevich])
+* Update AGP to 9.0.0 ([PR #768 @chenxiaolong])
+
+### Version 1.87
+
+* Add support for using Unix timestamps in the filename template ([Issue #742], [PR #743 @chenxiaolong])
+
+### Version 1.86
+
+* Update French translations ([PR #734 @NSO73])
+* Work around broken root hiding mechanisms that hide the old sysconfig file from the system ([Issue #733], [PR #736 @chenxiaolong])
+* Update dependencies ([PR #737 @chenxiaolong])
+
+### Version 1.85
+
+* Add support for hiding the app icon ([Issue #727], [PR #728 @People-11])
+  * When hidden, the app can be opened by dialing `*#*#BCR#*#*` (`*#*#227#*#*`)
+
+### Version 1.84
+
+* Fix recording to output directories that do not support seekable files ([Issue #722], [PR #723 @yeicor])
+* Append file extension manually if the SAF provider for the output directory fails to do so ([PR #724 @chenxiaolong])
+* Show path in notifications when SAF URI is meaningless ([PR #725 @chenxiaolong])
+
+### Version 1.83
+
+* Fix recording being restarted if the call state changes after it was cancelled (eg. due to "ignore" rules) ([Issue #719], [PR #720 @chenxiaolong])
+
+### Version 1.82
+
+* Fix file retention setting not refreshing if it was disabled by a bad filename template and the template is reset via long press ([PR #717 @chenxiaolong])
+* Update dependencies ([PR #718 @chenxiaolong])
+
+### Version 1.81
+
+* Add Azerbaijani translations ([PR #713 @muctebanesiri])
+* Update dependencies ([PR #714 @chenxiaolong])
+
+### Version 1.80
+
+* Update dependencies ([PR #696 @chenxiaolong], [PR #705 @chenxiaolong])
+* Remove dependency info block from APK ([PR #704 @chenxiaolong])
+
+### Version 1.79
+
+* Target Java 21 ([PR #685 @chenxiaolong])
+* Replace FAT32-invalid code points and ignorable code points in filenames ([Issue #691], [PR #692 @chenxiaolong], [PR #692 @TheDeathDragon])
+* Update dependencies ([PR #693 @chenxiaolong])
+
 ### Version 1.78
 
 * Add new `duration_secs_wall` field to the metadata JSON output file ([PR #674 @chenxiaolong])
