@@ -32,6 +32,53 @@ BCR is a simple Android call recording app for rooted devices or devices running
 * No network access permission
 * Works with call screening on Pixel devices (records the caller, but not the automated system)
 
+### Unreleased
+
+* Minor code style fixes ([PR #882 @chenxiaolong])
+* Clarify title and description of telecom-integrated calls option ([Issue #881], [PR #883 @chenxiaolong])
+* Minor fixes for new Compose UI ([PR #888 @chenxiaolong])
+* Update German translations ([Issue #791], [PR #889 @ElsAr4e])
+* Update French translations ([PR #887 @NSO73])
+
+### Version 3.1
+
+* Fix contact name and contact group name not showing up when viewing existing record rule ([PR #880 @chenxiaolong])
+
+### Version 3.0
+
+* Port UI to Jetpack Compose and adopt Material 3 Expressive styling ([PR #878 @chenxiaolong])
+* Update Traditional Chinese (zh-TW) translations ([PR #869 @anenasa])
+* Update German translations ([Issue #791], [Issue #871], [PR #870 @ElsAr4e], [PR #873 @ElsAr4e])
+* Clarify description strings for the record rule initial state setting ([Issue #871], [PR #872 @chenxiaolong])
+* Update Simplified Chinese (zh-CN) translations ([PR #874 @lofx-lee])
+* Update dependencies ([PR #879 @chenxiaolong])
+
+### Version 2.11
+
+* Update French translations ([PR #857 @NSO73])
+* Replace bottom sheet UI layouts with regular preferences ([Issue #858], [PR #862 @chenxiaolong])
+* Add mono and stereo suffixes to audio source labels ([Issue #833], [PR #863 @ElsAr4e], [PR #865 @chenxiaolong])
+* Make the `, ` separator in the output directory and output format settings summaries translatable ([PR #864 @chenxiaolong])
+* Fix titles of switch preferences being truncated when they don't fit ([Issue #858], [PR #866 @chenxiaolong])
+* Update German translations ([Issue #791], [PR #867 @ElsAr4e])
+
+### Version 2.10
+
+* Update German translations ([Issue #791], [PR #852 @ElsAr4e])
+* Add record rule option to start recordings in the paused state ([Issue #853], [PR #854 @chenxiaolong])
+
+### Version 2.9
+
+* Update German translations ([Issue #791], [PR #837 @ElsAr4e])
+* Add Korean translations ([PR #839 @RobertGarciaa])
+* Update Chinese translations ([PR #849 @lofx-lee])
+* Update dependencies ([PR #851 @chenxiaolong])
+
+### Version 2.8
+
+* Add support for recording uplink or downlink only ([Issue #833], [PR #834 @chenxiaolong])
+* Update dependencies ([PR #835 @chenxiaolong], [PR #836 @chenxiaolong])
+
 ### Version 2.7
 
 * Update Chinese translations ([PR #827 @lofx-lee])
