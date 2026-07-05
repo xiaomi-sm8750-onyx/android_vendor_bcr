@@ -34,11 +34,25 @@ BCR is a simple Android call recording app for rooted devices or devices running
 
 ### Unreleased
 
+### Version 3.4
+
+* Update dynamic background color to match AOSP Settings ([PR #905 @chenxiaolong])
+* Write STREAMINFO MD5 checksum when using the FLAC output format ([PR #906 @PatrykMis])
+* Remove unneeded compiler option after Kotlin 2.4 update ([PR #907 @chenxiaolong])
+
+### Version 3.3
+
+* Make back navigation icon filled to match Material 3 Expressive styling in Android's system settings ([PR #900 @chenxiaolong])
+* Update target API version to API 37 (Android 17) ([PR #901 @chenxiaolong])
+
+### Version 3.2
+
 * Minor code style fixes ([PR #882 @chenxiaolong])
 * Clarify title and description of telecom-integrated calls option ([Issue #881], [PR #883 @chenxiaolong])
 * Minor fixes for new Compose UI ([PR #888 @chenxiaolong])
 * Update German translations ([Issue #791], [PR #889 @ElsAr4e])
 * Update French translations ([PR #887 @NSO73])
+* Fix incorrect title for SIM slot record rule option ([PR #894 @chenxiaolong])
 
 ### Version 3.1
 
